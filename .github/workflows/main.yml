@@ -12,6 +12,6 @@ jobs:
       - name: Set up Xcode
         uses: actions/setup-xcode@v2
         with:
-          xcode-version: '12.x'
+          xcode-version: '14.x'
       - name: Build app
-        run: xcodebuild -workspace GHFollowers.xcworkspace -scheme GHFollowers -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=14.5,name=iPhone 11 Pro'
+        run: xcodebuild -project GHFollowers.xcodeproj -scheme GHFollowers -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14 Pro'
