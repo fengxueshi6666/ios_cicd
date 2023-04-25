@@ -5,6 +5,13 @@ on:
    branches:[main]
 jobs:
   build:
-    runs-on: macos-latest          
-      - name: Build app
-        run: xcodebuild -project GHFollowers.xcodeproj -scheme GHFollowers -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14 Pro'
+    runs-on: macos-latest
+      steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Set up Xcode
+      uses: actions/setup-xcode@v2
+      with:
+        xcode-version: '14.2'
+    - name: Build app
+       run: xcodebuild -project GHFollowers.xcodeproj -scheme GHFollowers -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14 Pro'
