@@ -11,5 +11,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    - name: Set up Xcode
+      uses: actions/setup-xcode@v2
+      with: xcode-version:'14.2'
     - name: build test 
-       run: xcodebuild clean test -scheme GHFollowers -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14 Pro'
+       run: xcodebuild clean test -scheme GHFollowers -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14'
