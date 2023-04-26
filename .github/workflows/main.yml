@@ -12,7 +12,6 @@ jobs:
     - name: Set up Xcode
       run: sudo xcode-select --switch /Applications/Xcode_14.2.app
     - name: Print GitHub Actions environment variables
-       run: |
-           env
+       run: env
     - name: build test 
        run: xcodebuild -project GHFollowers.xcodeproj  -scheme GHFollowers -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14'
