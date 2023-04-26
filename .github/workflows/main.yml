@@ -3,8 +3,6 @@ name: CI-Test
 on: 
  push:
    branches:[main]
-env:
-  DEVELOPER_DIR:/Applications/Xcode.app
 jobs:
   build:
     runs-on: macos-10.13.1
@@ -12,7 +10,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Set up Xcode
-      uses: actions/setup-xcode@v2
-      with: xcode-version:'14.2'
+      run: sudo xcode-select --switch /Applications/Xcode_14.2.app
     - name: build test 
        run: xcodebuild -project GHFollowers.xcodeproj  -scheme GHFollowers -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14'
