@@ -15,6 +15,6 @@ jobs:
     - name: build test
       run: |
            xcodebuild -project GHFollowers.xcodeproj \
-                    -scheme GHFolloers \
+                    -scheme GHFollowers \
                     -destination 'platform=iOS Simulator,name=iPhone 12' \
                     clean build test
