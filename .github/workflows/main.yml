@@ -5,11 +5,15 @@ on:
    branches:[main]
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: macos-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Set up Xcode
       run: sudo xcode-select --switch /Applications/Xcode_14.2.app
     - name: build test
-      run: xcodebuild -project GHFollowers.xcodeproj  -scheme GHFollowers -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14'
+      run: |
+           xcodebuild -project GHFollowers.xcodeproj \
+                    -scheme GHFolloers \
+                    -destination 'platform=iOS Simulator,name=iPhone 12' \
+                    clean build test
