@@ -13,7 +13,8 @@ jobs:
     - name: Set up Xcode
       run: sudo xcode-select --switch /Applications/Xcode_14.2.app
     - name: Install certification and Profile
-      env: BUILD_CERTIFICATION_BASE64: ${{secrets.CICD_DIS_CER}}
+      env: 
+           BUILD_CERTIFICATION_BASE64: ${{secrets.CICD_DIS_CER}}
            P12_PASSWORD: ${{secrets.CICD_PWD}}
     - name: build test
       run: |
