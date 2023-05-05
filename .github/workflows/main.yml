@@ -16,6 +16,13 @@ jobs:
       env: 
            BUILD_CERTIFICATION_BASE64: ${{secrets.CICD_DIS_CER}}
            P12_PASSWORD: ${{secrets.CICD_PWD}}
+           KEYCHAIN_PWD: ${{secrets.CICD_KEYCHAIN_PWD}}
+           BUILD_PROFILE_BASE64: ${{secrets.CICD_PRO_DIS}}
+      run: |
+        #create variable
+        echo $RUNNER_TEMP
+        CERTIFICATION_PATH=$RUNNER_TEMP/build_certification.p12
+        PROFILE_PATH=$RUNNER_TEMP/build_pp.mobileprovision
     - name: build test
       run: |
            xcodebuild -project GHFollowers.xcodeproj \
